@@ -1,7 +1,7 @@
 {
-  "name": "yuk-belajar",
+  "name": "electron-master-app",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "master routing aplikasi electron",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
