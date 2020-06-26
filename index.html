@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <button root="/home" >Home</button>
+    <button root="/about" >About</button>
+    <button root="/contact" >Contact</button>
+    <button root="/setting" >Setting</button>
+    <div id="root">
+
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./route.min.js"></script>
+    <script src="./route-config.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "yuk-belajar",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "author": "Gugus",
+  "license": "",
+  "devDependencies": {
+    "electron": "^9.0.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "electron-reload": "^1.5.0",
+    "firebase": "^7.15.5",
+    "mysql": "^2.18.1",
+    "sqlite3": "^4.2.0"
+  }
+}
