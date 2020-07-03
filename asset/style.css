@@ -1,0 +1,39 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+
+.nav{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 8px 10px;
+    background-color: #000080;
+    color: white;
+    height: 25px;
+}
+
+.nav > .navigation button.active{
+    border-bottom: 1px solid white;
+}
+
+.nav > .navigation{
+    text-align: right;
+}
+
+.nav > .navigation button{
+    outline: none;
+    border: none;
+    background: transparent;
+    color: white;
+    margin: 0 10px;
+    padding-bottom: 10px;
+}
+
+.title{
+    font-size: 20px;
+}
+
+#root{
+    padding: 10px;
+}

@@ -1,23 +1,35 @@
 // jika halaman tidak ada
+// membuat login system
 
 root.err = function(){
-    alert('error');
+    console.log('error');
 }
 
-root.get('/login', function(){
-    rootCall('page/login', arguments);
+
+root.loginData = null;
+
+root.verify = function(a){
+
+    // make verify
+    if (root.loginData === null) {
+        console.log(a);
+        rootCall('page/login', arguments);
+    }else{
+        return root.loginData;
+    }
+
+}
+
+root.get('/menu', function(){
+    rootCall('page/menu', arguments);
 })
 
 root.get('/home', function(){
     rootCall('page/home', arguments);
-})
+}, false)
 
 root.get('/about', function(){
     rootCall('page/about', arguments)
-})
-
-root.get('/contact', function(){
-    rootCall('page/contact', arguments)
 })
 
 root.get('/setting', function(){

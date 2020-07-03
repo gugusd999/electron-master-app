@@ -1,7 +1,5 @@
 // root membutuhkan axios
-
 const axios = require('axios');
-
 
 const rootCall = function (a, b){
     axios.get(a+'.js').then(function(res){
@@ -12,17 +10,22 @@ const rootCall = function (a, b){
     })
 }
 
-
 var root = {}
 
 // data rooting
 root.data = {}
 
-root.get = function (a, func){
+root.verifydata = {}
+
+root.verifydata.data = {}
+
+root.get = function (a, func, verify = false){
     root.data['#'+a] = func;
+    root.verifydata.data['#'+a] = verify;
 }
 
 root.start = function(a){
+    
     var location = window.location;
     if(location.hash != ""){
         var link = location.hash;
@@ -41,7 +44,15 @@ root.start = function(a){
         
         window.location.hash = link;
         if(root.data[rootKey] != undefined){
-            root.data[rootKey].apply(null, target);
+            if (root.verifydata.data[rootKey] === true) {
+                if (root.verify(rootKey) != false){
+                    root.verify(rootKey)
+                } else{
+                    root.data[rootKey].apply(null, target);
+                }
+            }else if(root.verifydata.data[rootKey] === false){
+                root.data[rootKey].apply(null, target);
+            }
         }else{
             root.err();
         }
@@ -71,9 +82,16 @@ root.start = function(a){
 // how about parameter ???....
 
 // rootcall
+
 document.querySelectorAll('[root]').forEach(function(item){
     item.addEventListener('click', function(event){
         event.preventDefault()
+
+        document.querySelectorAll('[root]').forEach((item) => {
+            item.setAttribute('class', '')
+        })
+
+        event.target.setAttribute('class', 'active');
 
         var link = '#'+event.target.getAttribute('root');
         var target = '#'+event.target.getAttribute('root');
@@ -91,8 +109,17 @@ document.querySelectorAll('[root]').forEach(function(item){
         target.shift();
         
         window.location.hash = link;
+        console.log(rootKey);
         if(root.data[rootKey] != undefined){
-            root.data[rootKey].apply(null, target);
+            if (root.verifydata.data[rootKey] === true) {
+                if (root.verify(rootKey) != false){
+                    root.verify(rootKey)
+                } else{
+                    root.data[rootKey].apply(null, target);
+                }
+            }else if(root.verifydata.data[rootKey] === false){
+                root.data[rootKey].apply(null, target);
+            }
         }else{
             root.err();
         }

@@ -4,18 +4,32 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <title>Hello World!</title>
+    <link rel="stylesheet" href="./asset/style.css">
   </head>
-  <body>
-    <button root="/home" >Home</button>
-    <button root="/about" >About</button>
-    <button root="/contact" >Contact</button>
-    <button root="/setting" >Setting</button>
+  <body class="transition">
+
+    <div class="nav transition2">
+      <div class="head-title">
+        <span class="title">Elearning</span>
+      </div>
+      <div class="navigation">
+        <button root="/home" class="active" >Home</button>
+        <button root="/menu" >Menu</button>
+        <!-- root with parameter -->
+        <button root="/menu/dua/menu-sub" >Menu</button>
+        <button root="/about" >About</button>
+        <button root="/setting" >Setting</button>
+      </div>
+    </div>
+
     <div id="root">
 
     </div>
 
     <!-- You can also require other files to run in this process -->
-    <script src="./route.min.js"></script>
+    <script src="./route.js"></script>
+    <script src="./plugin/mysql.js"></script>
     <script src="./route-config.js"></script>
+    <script src="./login.js"></script>
   </body>
 </html>
